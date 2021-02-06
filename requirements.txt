@@ -19,6 +19,7 @@ pycparser==2.20
 PyDispatcher==2.0.5
 PyHamcrest==2.0.2
 pyOpenSSL==20.0.1
+python-dateutil==2.8.1
 queuelib==1.5.0
 Scrapy==2.4.1
 service-identity==18.1.0

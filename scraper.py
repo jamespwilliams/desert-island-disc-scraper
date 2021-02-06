@@ -1,4 +1,4 @@
-from datetime import datetime
+import dateutil.parser
 import scrapy
 from scrapy.crawler import CrawlerProcess
 
@@ -26,7 +26,7 @@ class DIDScraper(scrapy.Spider):
         guest_name = episode_box.css('h1::text').get()
 
         time_str = response.css('.broadcast-event__time::attr("content")').get()
-        broadcast_time = datetime.strptime(time_str, '%Y-%m-%dT%H:%M:%S%z')
+        broadcast_time = dateutil.parser.parse(time_str)
 
         yield Appearance(
             id=appearance_id,
