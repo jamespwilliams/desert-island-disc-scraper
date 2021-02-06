@@ -32,7 +32,7 @@ class DIDScraper(scrapy.Spider):
             guest_name=guest_name,
         )
 
-        for music_section in response.css('.segments-list__item--music'):
+        for i, music_section in enumerate(response.css('.segments-list__item--music')):
             track = music_section.css('.segment__track')
             artist = track.css('.artist')
 
@@ -40,6 +40,7 @@ class DIDScraper(scrapy.Spider):
                 appearance_id=appearance_id,
                 artist=artist.css('::text').get() if artist else None,
                 title=track.css('p > span::text').get(),
+                position=i,
             )
 
         next_page = response.css('a[data-bbc-title="next:title"]::attr("href")').get()

@@ -10,4 +10,4 @@ class Disc(Item):
     appearance_id = Field()
     artist = Field()
     title = Field()
-    index = Field()
+    position = Field()

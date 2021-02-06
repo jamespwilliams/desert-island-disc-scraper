@@ -23,6 +23,7 @@ class Sqlite3Pipeline(object):
                 appearance_id TEXT,
                 artist TEXT,
                 title TEXT NOT NULL,
+                position INTEGER NOT NULL,
                 FOREIGN KEY(appearance_id) REFERENCES appearance(id)
             )
         ''')
@@ -37,8 +38,8 @@ class Sqlite3Pipeline(object):
 
         if type(item) == Disc:
             self.result_conn.execute('''
-                INSERT INTO disc (appearance_id, artist, title) VALUES (?, ?, ?)
-            ''', (item['appearance_id'], item['artist'], item['title']))
+                INSERT INTO disc (appearance_id, artist, title, position) VALUES (?, ?, ?, ?)
+            ''', (item['appearance_id'], item['artist'], item['title'], item['position']))
 
         self.result_conn.commit()
 
