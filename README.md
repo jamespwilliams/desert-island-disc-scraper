@@ -4,13 +4,22 @@
 
 Python 3 is needed.
 
-```terminal
+```console
 git clone https://github.com/jamespwilliams/desert-island-disc-scraper.git
 cd desert-island-disc-scraper
+```
 
-# if using nix:
+If using `nix`:
+
+```console
 nix-shell
-# otherwise:
+
+python scraper.py
+```
+
+Otherwise:
+
+```console
 . venv/bin/activate
 pip install -r requirements.txt
 
