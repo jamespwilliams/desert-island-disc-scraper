@@ -5,6 +5,8 @@ from scrapy.crawler import CrawlerProcess
 from items import Appearance, Disc
 from pipeline import Sqlite3Pipeline
 
+from tqdm import tqdm
+
 class DIDScraper(scrapy.Spider):
     name = 'desert_island_discs'
     start_urls = [
@@ -45,12 +47,15 @@ class DIDScraper(scrapy.Spider):
 
         next_page = response.css('a[data-bbc-title="next:title"]::attr("href")').get()
         if next_page is not None:
-            yield response.follow(next_page, self.parse)
+            progress_bar = response.meta.get('progress_bar') or tqdm(total=3227)
+            progress_bar.update(1)
+            yield response.follow(next_page, self.parse, meta={'progress_bar': progress_bar})
 
 
 if __name__ == '__main__':
     process = CrawlerProcess({
-        'USER_AGENT': 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)'
+        'USER_AGENT': 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)',
+        'LOG_LEVEL': 'WARN',
     })
 
     process.crawl(DIDScraper)
