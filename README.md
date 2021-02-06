@@ -1,5 +1,8 @@
 # desert-island-disc-scraper
 
+See https://morph.io/jamespwilliams/desert-island-disc-scraper, which runs
+the scraper every day.
+
 ## Usage
 
 Python 3 is needed.
