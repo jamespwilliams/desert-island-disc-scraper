@@ -7,14 +7,14 @@ the scraper every day.
 
 Python 3 is needed.
 
-```console
+```shell
 git clone https://github.com/jamespwilliams/desert-island-disc-scraper.git
 cd desert-island-disc-scraper
 ```
 
 If using `nix`:
 
-```console
+```shell
 nix-shell
 
 python scraper.py
@@ -22,7 +22,7 @@ python scraper.py
 
 Otherwise:
 
-```console
+```shell
 . venv/bin/activate
 pip install -r requirements.txt
 
@@ -31,7 +31,7 @@ python scraper.py
 
 ## Creating the playlist
 
-```console
+```shell
 export SPOTIFY_API_KEY="insert key"
 export SPOTIFY_PLAYLIST_ID="insert playlist id"
 
