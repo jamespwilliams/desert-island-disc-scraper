@@ -28,3 +28,12 @@ pip install -r requirements.txt
 
 python scraper.py
 ```
+
+## Creating the playlist
+
+```console
+export SPOTIFY_API_KEY="insert key"
+export SPOTIFY_PLAYLIST_ID="insert playlist id"
+
+python create_playlist.py
+```
